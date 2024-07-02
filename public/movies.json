@@ -1,0 +1,222 @@
+[
+  {
+    "id": 1,
+    "title": "Inception",
+    "director": "Christopher Nolan",
+    "releaseYear": 2010,
+    "genre": "Science Fiction",
+    "rating": 8.8,
+    "url": "https://upload.wikimedia.org/wikipedia/en/2/2e/Inception_%282010%29_theatrical_poster.jpg",
+    "liked": true,
+    "watchlist": false
+  },
+  {
+    "id": 2,
+    "title": "The Prestige",
+    "director": "Christopher Nolan",
+    "releaseYear": 2006,
+    "genre": "Drama",
+    "rating": 8.5,
+    "url": "https://upload.wikimedia.org/wikipedia/en/d/d2/Prestige_poster.jpg",
+    "liked": true,
+    "watchlist": false
+  },
+  {
+    "id": 3,
+    "title": "The Dark Knight",
+    "director": "Christopher Nolan",
+    "releaseYear": 2008,
+    "genre": "Action",
+    "rating": 9.0,
+    "url": "https://image.tmdb.org/t/p/original/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
+    "liked": true,
+    "watchlist": false
+  },
+  {
+    "id": 4,
+    "title": "Pulp Fiction",
+    "director": "Quentin Tarantino",
+    "releaseYear": 1994,
+    "genre": "Crime",
+    "rating": 8.9,
+    "url": "https://upload.wikimedia.org/wikipedia/en/3/3b/Pulp_Fiction_%281994%29_poster.jpg",
+    "liked": true,
+    "watchlist": false
+  },
+  {
+    "id": 5,
+    "title": "Schindler's List",
+    "director": "Steven Spielberg",
+    "releaseYear": 1993,
+    "genre": "Drama",
+    "rating": 8.9,
+    "url": "https://image.tmdb.org/t/p/original/sF1U4EUQS8YHUYjNl3pMGNIQyr0.jpg",
+    "liked": true,
+    "watchlist": false
+  },
+  {
+    "id": 6,
+    "title": "The Lord of the Rings: The Return of the King",
+    "director": "Peter Jackson",
+    "releaseYear": 2003,
+    "genre": "Fantasy",
+    "rating": 8.9,
+    "url": "https://image.tmdb.org/t/p/original/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg",
+    "liked": true,
+    "watchlist": false
+  },
+  {
+    "id": 7,
+    "title": "Fight Club",
+    "director": "David Fincher",
+    "releaseYear": 1999,
+    "genre": "Drama",
+    "rating": 8.8,
+    "url": "https://image.tmdb.org/t/p/original/bptfVGEQuv6vDTIMVCHjJ9Dz8PX.jpg",
+    "liked": true,
+    "watchlist": false
+  },
+  {
+    "id": 8,
+    "title": "Forrest Gump",
+    "director": "Robert Zemeckis",
+    "releaseYear": 1994,
+    "genre": "Drama",
+    "rating": 8.8,
+    "url": "https://upload.wikimedia.org/wikipedia/en/6/67/Forrest_Gump_poster.jpg",
+    "liked": true,
+    "watchlist": false
+  },
+  {
+    "id": 9,
+    "title": "The Matrix",
+    "director": "Lana Wachowski, Lilly Wachowski",
+    "releaseYear": 1999,
+    "genre": "Science Fiction",
+    "rating": 8.7,
+    "url": "https://image.tmdb.org/t/p/original/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg",
+    "liked": true,
+    "watchlist": false
+  },
+  {
+    "id": 10,
+    "title": "Goodfellas",
+    "director": "Martin Scorsese",
+    "releaseYear": 1990,
+    "genre": "Crime",
+    "rating": 8.7,
+    "url": "https://upload.wikimedia.org/wikipedia/en/7/7b/Goodfellas.jpg",
+    "liked": true,
+    "watchlist": false
+  },
+  {
+    "id": 11,
+    "title": "The Shawshank Redemption",
+    "director": "Frank Darabont",
+    "releaseYear": 1994,
+    "genre": "Drama",
+    "rating": 9.3,
+    "url": "https://upload.wikimedia.org/wikipedia/en/8/81/ShawshankRedemptionMoviePoster.jpg",
+    "liked": true,
+    "watchlist": false
+  },
+  {
+    "id": 12,
+    "title": "The Empire Strikes Back",
+    "director": "Irvin Kershner",
+    "releaseYear": 1980,
+    "genre": "Science Fiction",
+    "rating": 8.7,
+    "url": "https://www.themoviedb.org/t/p/original/7BuH8itoSrLExs2YZSsM01Qk2no.jpg",
+    "liked": true,
+    "watchlist": false
+  },
+  {
+    "id": 13,
+    "title": "Interstellar",
+    "director": "Christopher Nolan",
+    "releaseYear": 2014,
+    "genre": "Science Fiction",
+    "rating": 8.6,
+    "url": "https://upload.wikimedia.org/wikipedia/en/b/bc/Interstellar_film_poster.jpg",
+    "liked": true,
+    "watchlist": false
+  },
+  {
+    "id": 14,
+    "title": "The Lion King",
+    "director": "Roger Allers, Rob Minkoff",
+    "releaseYear": 1994,
+    "genre": "Animation",
+    "rating": 8.5,
+    "url": "https://upload.wikimedia.org/wikipedia/en/3/3d/The_Lion_King_poster.jpg",
+    "liked": true,
+    "watchlist": false
+  },
+  {
+    "id": 15,
+    "title": "Gladiator",
+    "director": "Ridley Scott",
+    "releaseYear": 2000,
+    "genre": "Action",
+    "rating": 8.5,
+    "url": "https://www.themoviedb.org/t/p/original/ty8TGRuvJLPUmAR1H1nRIsgwvim.jpg",
+    "liked": true,
+    "watchlist": false
+  },
+  {
+    "id": 16,
+    "title": "Saving Private Ryan",
+    "director": "Steven Spielberg",
+    "releaseYear": 1998,
+    "genre": "War",
+    "rating": 8.6,
+    "url": "https://upload.wikimedia.org/wikipedia/en/a/ac/Saving_Private_Ryan_poster.jpg",
+    "liked": true,
+    "watchlist": false
+  },
+  {
+    "id": 17,
+    "title": "Braveheart",
+    "director": "Mel Gibson",
+    "releaseYear": 1995,
+    "genre": "Drama",
+    "rating": 8.4,
+    "url": "https://upload.wikimedia.org/wikipedia/en/5/55/Braveheart_imp.jpg",
+    "liked": true,
+    "watchlist": false
+  },
+  {
+    "id": 18,
+    "title": "The Departed",
+    "director": "Martin Scorsese",
+    "releaseYear": 2006,
+    "genre": "Crime",
+    "rating": 8.5,
+    "url": "https://upload.wikimedia.org/wikipedia/en/5/50/Departed234.jpg",
+    "liked": true,
+    "watchlist": false
+  },
+  {
+    "id": 19,
+    "title": "Whiplash",
+    "director": "Damien Chazelle",
+    "releaseYear": 2014,
+    "genre": "Drama",
+    "rating": 8.5,
+    "url": "https://upload.wikimedia.org/wikipedia/en/0/01/Whiplash_poster.jpg",
+    "liked": true,
+    "watchlist": false
+  },
+  {
+    "id": 20,
+    "title": "The Godfather",
+    "director": "Francis Ford Coppola",
+    "releaseYear": 1972,
+    "genre": "Crime",
+    "rating": 9.2,
+    "url": "https://image.tmdb.org/t/p/original/rSPw7tgCH9c6NqICZef4kZjFOQ5.jpg",
+    "liked": true,
+    "watchlist": false
+  }
+]

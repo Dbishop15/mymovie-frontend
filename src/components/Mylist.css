@@ -1,0 +1,48 @@
+/* src/components/MyList.css */
+.mylist-container {
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.mylist-title {
+  margin-top: 20px;
+  font-size: 30px;
+  color: red;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 250px);
+  gap: 2rem 2rem;
+  padding: 2rem;
+  justify-content: center;
+}
+
+.movie-card {
+  background-color: #333;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 200px;
+  padding: 15px;
+  text-align: left;
+}
+
+.movie-image {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #444;
+  margin-bottom: 10px;
+}
+
+.movie-card h3 {
+  margin: 10px 0 5px;
+  font-size: 1.2em;
+  color: #e50914;
+}
+
+.movie-card p {
+  margin: 5px 0;
+  font-size: 0.9em;
+  color: #ccc;
+}

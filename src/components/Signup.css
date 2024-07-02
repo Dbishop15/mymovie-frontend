@@ -1,0 +1,82 @@
+body {
+  font-family: Arial, sans-serif;
+  /* background: url("/public/images/netflix-logo.png") no-repeat center fixed;
+  background-size: cover; */
+  margin: 0;
+  color: #333; /* Changed text color to dark for better contrast on white background */
+  text-align: center;
+  position: relative;
+}
+.error {
+  color: red;
+  text-align: left;
+}
+.signup-container {
+  position: absolute;
+  top: 33%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 1);
+  backdrop-filter: blur(10px); /* Blurry background */
+  padding: 40px;
+  border-radius: 8px;
+  width: 600px; /* Increased width */
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  z-index: 1;
+}
+
+.signup-container h2 {
+  color: white;
+  margin-bottom: 20px;
+  font-size: 2em; /* Increased font size */
+}
+
+.signup-container input {
+  width: 100%;
+  padding: 15px; /* Increased padding */
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc; /* Changed border color for better contrast */
+  background-color: #f9f9f9; /* Changed input background color to light grey */
+  color: #333; /* Changed input text color to dark */
+  font-size: 1em; /* Increased font size */
+}
+
+.signup-container button {
+  width: 100%;
+  padding: 15px; /* Increased padding */
+  background-color: #e50914;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1.2em; /* Increased font size */
+  cursor: pointer;
+}
+.signup-container input {
+  width: 100%;
+  padding: 15px; /* Increased padding */
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #333;
+  background-color: #333;
+  color: #fff;
+  font-size: 1em; /* Increased font size */
+}
+.signup-container button:hover {
+  background-color: #f6121d;
+}
+
+.signup-container .sign-up {
+  margin-top: 20px;
+}
+
+.signup-container .sign-up a {
+  color: #e50914; /* Changed link color to match the button */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.signup-container .sign-up a:hover {
+  text-decoration: underline;
+}

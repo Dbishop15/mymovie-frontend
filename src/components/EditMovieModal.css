@@ -1,0 +1,121 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(65, 62, 62, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  position: absolute;
+  top: 33%;
+  left: 50%;
+  margin-top: 100px;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 1);
+  backdrop-filter: blur(10px); /* Blurry background */
+  padding: 40px;
+  border-radius: 8px;
+  width: 600px; /* Increased width */
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  z-index: 1;
+}
+
+.modal-container h2 {
+  margin-bottom: 20px;
+  font-size: 2em; /* Increased font size */
+}
+.modal-title {
+  color: white;
+  margin-bottom: 20px;
+}
+
+.modal-container input {
+  width: 100%;
+  padding: 15px; /* Increased padding */
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc; /* Changed border color for better contrast */
+  background-color: #f9f9f9; /* Changed input background color to light grey */
+  color: #333; /* Changed input text color to dark */
+  font-size: 1em; /* Increased font size */
+}
+
+.modal-container button {
+  width: 50%;
+  padding: 15px; /* Increased padding */
+  background-color: #e50914;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1.2em; /* Increased font size */
+  cursor: pointer;
+}
+.modal-container input {
+  width: 100%;
+  padding: 15px; /* Increased padding */
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #333;
+  background-color: #333;
+  color: #fff;
+  font-size: 1em; /* Increased font size */
+}
+.modal-container button:hover {
+  background-color: #f6121d;
+}
+
+.modal-container .sign-up {
+  margin-top: 20px;
+}
+
+.modal-container .sign-up a {
+  color: #e50914; /* Changed link color to match the button */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.modal-container .sign-up a:hover {
+  text-decoration: underline;
+}
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 15px; /* Increased padding */
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #333;
+  background-color: #333;
+  color: #fff;
+  font-size: 1em; /* Increased font size */
+}
+
+.modal-actions {
+  text-align: right;
+  display: flex;
+  gap: 20px;
+}
+
+.modal-actions button {
+  width: 100%;
+  padding: 15px; /* Increased padding */
+  background-color: #e50914;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1.2em; /* Increased font size */
+  cursor: pointer;
+}
+.modal-actions button:hover {
+  background-color: green;
+  cursor: pointer;
+}
