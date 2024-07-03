@@ -22,10 +22,16 @@ jobs:
       - name: Build Project
         run: npm run build
 
-      - name: Clear Git Credentials Cache
+      - name: Debugging Info
         run: |
-          git config --global --unset credential.helper
-          git config --global --unset credential.https://github.com/.helper
+          echo "Listing build directory:"
+          ls -la build
+          echo "Git status:"
+          git status
+          echo "Git remote -v:"
+          git remote -v
+          echo "Listing root directory:"
+          ls -la
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
