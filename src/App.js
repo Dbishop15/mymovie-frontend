@@ -75,7 +75,7 @@ function App() {
       <div className="App">
         <Header user={user} setUser={setUser} />
         {!user && <Home />}
-        <h1>{ProcessingInstruction.env.WELCOME_TEXT || "hello Everyone"}</h1>
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login setUser={setUser} />} />
