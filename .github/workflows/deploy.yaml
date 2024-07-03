@@ -25,6 +25,8 @@ jobs:
 
       - name: Build Project
         run: npm run build
+        env:
+         WELCOME_TEXT: ${{vars.WELCOME_TEXT}}
         
       - name: Verify Build Directory
         run: |
