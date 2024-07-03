@@ -21,17 +21,15 @@ jobs:
 
       - name: Build Project
         run: npm run build
-
-      - name: Debugging Info
+        
+      - name: Verify Build Directory
         run: |
-          echo "Listing build directory:"
+          echo "Verifying build directory:"
           ls -la build
-          echo "Git status:"
-          git status
-          echo "Git remote -v:"
-          git remote -v
-          echo "Listing root directory:"
-          ls -la
+          if [ ! -d "build" ]; then
+            echo "Build directory does not exist!"
+            exit 1
+          fi
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
