@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import PropTypes from "prop-types";
 import {
   getUserMovies,
@@ -14,20 +14,20 @@ const MyList = ({ user }) => {
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [isEditModalOpen, setEditModalOpen] = useState(false);
 
-  useEffect(() => {
-    if (user && user.id) {
-      fetchUserMovies();
-    }
-  }, [user]);
-
-  const fetchUserMovies = async () => {
+  const fetchUserMovies = useCallback(async () => {
     try {
       const response = await getUserMovies(user.id);
       setMovies(response.data);
     } catch (error) {
       console.error("Error fetching user movies:", error);
     }
-  };
+  }, [user.id]);
+
+  useEffect(() => {
+    if (user && user.id) {
+      fetchUserMovies();
+    }
+  }, [user, fetchUserMovies]);
 
   const handleDelete = async (id) => {
     try {

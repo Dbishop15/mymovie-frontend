@@ -15,13 +15,10 @@ import {
 import WatchList from "./components/WatchList";
 import AddMovie from "./components/AddMovie";
 import Mylist from "./components/Mylist";
-import EditMovieModal from "./components/EditMovieModal";
 
 function App() {
   const [user, setUser] = useState(null);
   const [movies, setMovies] = useState([]);
-  const [selectedMovie, setSelectedMovie] = useState(null);
-  const [isEditModalOpen, setEditModalOpen] = useState(false);
   const [watchlist, setWatchlist] = useState([]);
 
   const handleGetMovies = async () => {
@@ -72,12 +69,6 @@ function App() {
 
     fetchMovies();
   }, []);
-
-  useEffect(() => {
-    if (user) {
-      handleGetWatchlist();
-    }
-  }, [user]);
 
   return (
     <Router>
@@ -140,13 +131,6 @@ function App() {
         </Routes>
         <Footer />
       </div>
-      {selectedMovie && (
-        <EditMovieModal
-          movie={selectedMovie}
-          isOpen={isEditModalOpen}
-          onClose={() => setEditModalOpen(false)}
-        />
-      )}
     </Router>
   );
 }

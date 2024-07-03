@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Movies from "./Movies";
 import "../components/WatchList.css";
 import {
   addToWatchlist,
-  updateWatchlistStatus,
   getMovies,
   getWatchlist,
 } from "../services/apiService";
@@ -70,28 +69,28 @@ export default function MoviesGrid({
     }
   };
 
+  const fetchMovies = useCallback(async () => {
+    try {
+      const moviesData = await getMovies();
+      setMovies(moviesData);
+    } catch (error) {
+      console.error("Error fetching movies:", error);
+    }
+  }, [setMovies]);
+
+  const fetchWatchlist = useCallback(async () => {
+    try {
+      const watchlistData = await getWatchlist(user.id);
+      setWatchlist(watchlistData.map((movie) => movie.id)); // Store only movie IDs in watchlist
+    } catch (error) {
+      console.error("Error fetching watchlist:", error);
+    }
+  }, [user.id]);
+
   useEffect(() => {
-    const fetchMovies = async () => {
-      try {
-        const moviesData = await getMovies();
-        setMovies(moviesData);
-      } catch (error) {
-        console.error("Error fetching movies:", error);
-      }
-    };
-
-    const fetchWatchlist = async () => {
-      try {
-        const watchlistData = await getWatchlist(user.id);
-        setWatchlist(watchlistData.map((movie) => movie.id)); // Store only movie IDs in watchlist
-      } catch (error) {
-        console.error("Error fetching watchlist:", error);
-      }
-    };
-
     fetchMovies();
     fetchWatchlist();
-  }, [user.id]);
+  }, [fetchMovies, fetchWatchlist]);
 
   return (
     <div className="watchlist-container">
