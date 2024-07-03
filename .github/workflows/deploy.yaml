@@ -30,7 +30,18 @@ jobs:
             echo "Build directory does not exist!"
             exit 1
           fi
-
+      - name: Detailed Debugging Info
+        run: |
+          echo "Listing build directory:"
+          ls -la build
+          echo "Listing current working directory:"
+          ls -la
+          echo "Listing parent directory:"
+          ls -la ..
+          echo "Git status:"
+          git status
+          echo "Git remote -v:"
+          git remote -v
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
