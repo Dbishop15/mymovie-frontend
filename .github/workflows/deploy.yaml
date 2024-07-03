@@ -8,13 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4  # Updated to v4 for Node.js 20 compatibility
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4  # Ensure we use the latest version for Node.js 20 compatibility
+        uses: actions/setup-node@v4
         with: 
           node-version: 20
-  
+
       - name: Install Dependencies
         run: npm install
 
@@ -25,4 +25,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with: 
           branch: github-page
-          folder: build_deploy
+          folder: build
