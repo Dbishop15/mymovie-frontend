@@ -104,7 +104,7 @@ export default function Signup({ setUser }) {
           {errors.password && <p className="error">{errors.password}</p>}
         </div>
         <button type="submit">Sign Up</button>
-        <div className="login">
+        <div className="sign-up">
           <span>
             <p>
               Already have an account? <a href="/login">Sign In</a>

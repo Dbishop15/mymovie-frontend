@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { saveMovie } from "../../services/apiService";
+import { saveMovie } from "../services/apiService";
 import { Link } from "react-router-dom";
 import "./AddMovie.css";
 
