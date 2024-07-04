@@ -1,23 +1,14 @@
 import React, { useState, useEffect, useCallback } from "react";
 import Movies from "./Movies";
-import "../components/WatchList.css";
 import {
   addToWatchlist,
   getMovies,
   getWatchlist,
 } from "../services/apiService";
+import "../components/Movies.css";
 
-export default function MoviesGrid({
-  user,
-  movies = [],
-  setMovies,
-  updateWatchlistStatus,
-  onDelete,
-  onEdit,
-  handleGetMovies,
-}) {
+export default function MoviesGrid({ user, movies = [], setMovies }) {
   const [watchlist, setWatchlist] = useState([]);
-
   const [search, setSearch] = useState("");
   const [director, setDirector] = useState("");
   const [releaseYear, setReleaseYear] = useState("");
@@ -161,7 +152,6 @@ export default function MoviesGrid({
             movie={movie}
             user={user}
             showDeleteButton={false}
-            updateWatchlistStatus={updateWatchlistStatus}
             showWatchlistButtons={!watchlist.includes(movie.id)} // Show add button if movie is not in watchlist
             handleAddToWatchlist={handleAddToWatchlist}
             inWatchlist={watchlist.includes(movie.id)}

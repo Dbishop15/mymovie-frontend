@@ -7,11 +7,7 @@ import MoviesGrid from "./components/MoviesGrid";
 import Signup from "./components/Signup";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./components/Login";
-import {
-  getMovies,
-  updateWatchlistStatus,
-  getWatchlist,
-} from "./services/apiService";
+import { getMovies } from "./services/apiService";
 import WatchList from "./components/WatchList";
 import AddMovie from "./components/AddMovie";
 import Mylist from "./components/Mylist";
@@ -19,7 +15,6 @@ import Mylist from "./components/Mylist";
 function App() {
   const [user, setUser] = useState(null);
   const [movies, setMovies] = useState([]);
-  const [watchlist, setWatchlist] = useState([]);
 
   const handleGetMovies = async () => {
     try {
@@ -27,29 +22,6 @@ function App() {
       setMovies(fetchedMovies);
     } catch (error) {
       console.error("Failed to fetch movies", error);
-    }
-  };
-
-  const handleGetWatchlist = async () => {
-    try {
-      const fetchedWatchlist = await getWatchlist(user.id);
-      setWatchlist(fetchedWatchlist.map((movie) => movie.id)); // Store only movie IDs in watchlist
-    } catch (error) {
-      console.error("Failed to fetch watchlist", error);
-    }
-  };
-
-  const handleUpdateWatchlistStatus = async (id, status) => {
-    try {
-      await updateWatchlistStatus(id, status);
-      setMovies((prevMovies) =>
-        prevMovies.map((movie) =>
-          movie.id === id ? { ...movie, watchlist: status } : movie
-        )
-      );
-      handleGetWatchlist();
-    } catch (error) {
-      console.error("There was an error updating the movie!", error);
     }
   };
 
@@ -98,7 +70,6 @@ function App() {
                   user={user}
                   movies={movies}
                   setMovies={setMovies}
-                  updateWatchlistStatus={handleUpdateWatchlistStatus}
                   handleGetMovies={handleGetMovies}
                 />
               ) : (
@@ -110,14 +81,7 @@ function App() {
             path="/watchlist"
             element={
               user ? (
-                <WatchList
-                  user={user}
-                  movies={movies}
-                  setMovies={setMovies}
-                  updateWatchlistStatus={handleUpdateWatchlistStatus}
-                  watchlist={watchlist}
-                  handleGetWatchlist={handleGetWatchlist}
-                />
+                <WatchList user={user} movies={movies} setMovies={setMovies} />
               ) : (
                 <Login setUser={setUser} />
               )

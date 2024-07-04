@@ -7,7 +7,7 @@ import {
   faMinus,
   faEdit,
 } from "@fortawesome/free-solid-svg-icons";
-import "../components/styles.css";
+import "../components/Movies.css";
 
 export default function Movies({
   movie,
