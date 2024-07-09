@@ -1,10 +1,8 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useContext } from "react";
 import Movies from "./Movies";
-import {
-  addToWatchlist,
-  getMovies,
-  getWatchlist,
-} from "../services/apiService";
+import { saveWatchlist, getMovies, getWatchlist } from "../services/api";
+import { UserContext } from "../contexts/UserContext";
+
 import "../components/Movies.css";
 
 export default function MoviesGrid({ user, movies = [], setMovies }) {
@@ -20,7 +18,7 @@ export default function MoviesGrid({ user, movies = [], setMovies }) {
   const releaseYearHandler = (e) => setReleaseYear(e.target.value);
   const genreHandler = (e) => setGenre(e.target.value);
   const ratingHandler = (e) => setRating(e.target.value);
-
+  debugger;
   const filteredMovies = movies.filter((movie) => {
     return (
       (!search || movie.title.toLowerCase().includes(search.toLowerCase())) &&
@@ -47,7 +45,7 @@ export default function MoviesGrid({ user, movies = [], setMovies }) {
 
   const handleAddToWatchlist = async (movieId) => {
     try {
-      await addToWatchlist(user.id, movieId);
+      await saveWatchlist(user.userId, movieId);
       setWatchlist((prevWatchlist) => [...prevWatchlist, movieId]);
       setMovies((prevMovies) =>
         prevMovies.map((movie) =>
@@ -71,17 +69,19 @@ export default function MoviesGrid({ user, movies = [], setMovies }) {
 
   const fetchWatchlist = useCallback(async () => {
     try {
-      const watchlistData = await getWatchlist(user.id);
+      const watchlistData = await getWatchlist(user.userId);
       setWatchlist(watchlistData.map((movie) => movie.id)); // Store only movie IDs in watchlist
     } catch (error) {
       console.error("Error fetching watchlist:", error);
     }
-  }, [user.id]);
+  }, [user.userId]);
 
   useEffect(() => {
-    fetchMovies();
     fetchWatchlist();
-  }, [fetchMovies, fetchWatchlist]);
+  }, [fetchWatchlist]);
+  useEffect(() => {
+    fetchMovies();
+  }, [fetchMovies]);
 
   return (
     <div className="watchlist-container">

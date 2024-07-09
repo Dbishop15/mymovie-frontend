@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../components/Signup.css";
-import { signup } from "../services/apiService";
+import { signup } from "../services/api";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 

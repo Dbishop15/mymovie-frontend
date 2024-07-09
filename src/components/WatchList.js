@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Movies from "./Movies";
 import "../components/WatchList.css";
-import { getWatchlist, deleteFromWatchlist } from "../services/apiService";
+import { getWatchlist, deleteFromWatchlist } from "../services/api";
 
 export default function WatchList({ user }) {
   const [watchlist, setWatchlist] = useState([]);
@@ -10,7 +10,7 @@ export default function WatchList({ user }) {
   useEffect(() => {
     const fetchWatchlist = async () => {
       try {
-        const watchlistData = await getWatchlist(user.id);
+        const watchlistData = await getWatchlist(user.userId);
         setWatchlist(Array.isArray(watchlistData) ? watchlistData : []);
       } catch (error) {
         console.error("Error fetching watchlist:", error);
@@ -19,11 +19,11 @@ export default function WatchList({ user }) {
     };
 
     fetchWatchlist();
-  }, [user.id]);
+  }, [user.userId]);
 
   const handleRemoveFromWatchlist = async (movieId) => {
     try {
-      await deleteFromWatchlist(user.id, movieId);
+      await deleteFromWatchlist(user.userId, movieId);
       setWatchlist((prevMovies) =>
         prevMovies.filter((movie) => movie.id !== movieId)
       );
@@ -59,6 +59,4 @@ export default function WatchList({ user }) {
 
 WatchList.propTypes = {
   user: PropTypes.object.isRequired,
-  setMovies: PropTypes.func.isRequired,
-  onDelete: PropTypes.func.isRequired,
 };

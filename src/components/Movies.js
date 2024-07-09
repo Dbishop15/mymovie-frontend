@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -7,6 +7,7 @@ import {
   faMinus,
   faEdit,
 } from "@fortawesome/free-solid-svg-icons";
+import { WatchlistContext } from "../contexts/WatchlistContext";
 import "../components/Movies.css";
 
 export default function Movies({
@@ -24,6 +25,9 @@ export default function Movies({
 }) {
   const [isInWatchlist, setIsInWatchlist] = useState(inWatchlist);
   const [isAdding, setIsAdding] = useState(false);
+  // const [isInWatchlist, setIsInWatchlist] = useState(
+  //   watchlist.some((w) => w.id === movie.id)
+  // );
 
   useEffect(() => {
     setIsInWatchlist(inWatchlist);

@@ -1,15 +1,36 @@
+// Login.js
 import React, { useState } from "react";
-import "../components/Login.css";
-import { login } from "../services/apiService";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
+import { login } from "../services/api";
+import { setToken, parseJwt } from "../services/auth";
+import "../components/Login.css";
 
 export default function Login({ setUser }) {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
-  const [errors, setErrors] = useState({});
-  const navigate = useNavigate(); // Initialize navigate
+  const [username, setUsernameState] = useState("");
+  const [password, setPasswordState] = useState("");
+  const [message, setMessageState] = useState("");
+  const [errors, setErrorsState] = useState({});
+  const navigate = useNavigate();
+
+  const setUsername = (value) => {
+    setUsernameState(value);
+    if (errors.username) {
+      setErrorsState((prevErrors) => ({ ...prevErrors, username: null }));
+    }
+  };
+
+  const setPassword = (value) => {
+    setPasswordState(value);
+    if (errors.password) {
+      setErrorsState((prevErrors) => ({ ...prevErrors, password: null }));
+    }
+  };
+
+  const setMessage = (value) => {
+    setMessageState(value);
+    setTimeout(() => setMessageState(""), 5000);
+  };
 
   const validateForm = () => {
     const newErrors = {};
@@ -19,7 +40,7 @@ export default function Login({ setUser }) {
     if (password.trim() === "") {
       newErrors.password = "Password is required.";
     }
-    setErrors(newErrors);
+    setErrorsState(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
@@ -30,24 +51,38 @@ export default function Login({ setUser }) {
     }
     try {
       const response = await login(username, password);
-      console.log("Login response:", response); // Debugging log
-      if (
-        response &&
-        response.data &&
-        response.data.username === username &&
-        response.data.password === password
-      ) {
-        console.log("User object:", response.data); // Debugging log
-        setUser(response.data); // Set the logged-in user from response
+      console.log("Login response:", response);
+
+      if (response.jwt) {
+        const token = response.jwt;
+        console.log("Received JWT token:", token);
+        setToken(token);
+        const userInfo = parseJwt(token);
+        console.log("Decoded user info:", userInfo);
+        setUser(userInfo);
         setMessage("Login successful!");
-        navigate("/movies"); // Navigate to movies page after login
+        navigate("/movies");
       } else {
         setMessage("Login failed! Incorrect username or password.");
         console.log("Login failed response:", response);
       }
     } catch (error) {
-      setMessage("An error occurred during login.");
-      console.error("Login error:", error);
+      if (error.response) {
+        console.error("Error response:", error.response);
+        if (error.response.status === 403) {
+          setMessage("Access denied. Please check your credentials.");
+        } else if (error.response.status === 400) {
+          setMessage("Bad request. Please check the data you are sending.");
+        } else {
+          setMessage(`An error occurred: ${error.response.statusText}`);
+        }
+      } else if (error.request) {
+        console.error("Error request:", error.request);
+        setMessage("No response from the server. Please try again later.");
+      } else {
+        console.error("Error message:", error.message);
+        setMessage("An error occurred during login. Please try again.");
+      }
     }
   };
 

@@ -1,11 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import Logout from "./Logout";
+import { Link, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import "../components/Header.css";
+import { clearToken } from "../services/auth";
 
-export default function Header({ user, setUser }) {
+export default function Header({ user, setUser, onLogout }) {
   console.log("Header user:", user); // Debugging log
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    clearToken();
+    setUser(null);
+    navigate("/login");
+  };
+
   return (
     <header className="header">
       <div className="header-content">
@@ -16,13 +24,13 @@ export default function Header({ user, setUser }) {
               <Link to="/movies">Home</Link>
             </li>
             <li>
-              <Link to="/addmovie">AddNewMovie</Link>
+              <Link to="/addmovie">Add New Movie</Link>
             </li>
             <li>
-              <Link to="/mylist">AddedList</Link>
+              <Link to="/mylist">Added List</Link>
             </li>
             <li>
-              <Link to="/watchlist">WatchList</Link>
+              <Link to="/watchlist">Watch List</Link>
             </li>
           </ul>
         </nav>
@@ -32,7 +40,9 @@ export default function Header({ user, setUser }) {
               <>
                 <li className="header-username">Welcome, {user.username}</li>
                 <li>
-                  <Logout setUser={setUser} />
+                  <button onClick={handleLogout} className="logout-btn">
+                    Logout
+                  </button>
                 </li>
               </>
             ) : (
@@ -51,6 +61,7 @@ export default function Header({ user, setUser }) {
     </header>
   );
 }
+
 Header.propTypes = {
   user: PropTypes.shape({
     username: PropTypes.string,

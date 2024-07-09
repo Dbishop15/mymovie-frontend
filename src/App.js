@@ -7,10 +7,11 @@ import MoviesGrid from "./components/MoviesGrid";
 import Signup from "./components/Signup";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./components/Login";
-import { getMovies } from "./services/apiService";
 import WatchList from "./components/WatchList";
 import AddMovie from "./components/AddMovie";
 import Mylist from "./components/Mylist";
+import { getCurrentUser } from "./services/auth";
+import { getMovies } from "./services/api";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -40,6 +41,14 @@ function App() {
     };
 
     fetchMovies();
+  }, []);
+
+  useEffect(() => {
+    const fetchUser = () => {
+      const currentUser = getCurrentUser();
+      setUser(currentUser);
+    };
+    fetchUser();
   }, []);
 
   return (
@@ -99,5 +108,4 @@ function App() {
     </Router>
   );
 }
-
 export default App;
