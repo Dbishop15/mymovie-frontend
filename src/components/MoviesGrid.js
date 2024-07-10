@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useCallback, useContext } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Movies from "./Movies";
 import { saveWatchlist, getMovies, getWatchlist } from "../services/api";
-import { UserContext } from "../contexts/UserContext";
 
 import "../components/Movies.css";
 

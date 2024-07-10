@@ -1,9 +1,5 @@
 import { url } from "../services/axiosInstance";
 import { authURL } from "../services/authURL";
-import { setToken, getToken } from "../services/auth";
-import axios from "axios";
-
-// Function to set the Authorization header
 
 // Login function using baseURL
 const login = async (username, password) => {
@@ -16,20 +12,6 @@ const login = async (username, password) => {
   }
 };
 
-// Function to handle user signup
-// const signup = async (username, email, password) => {
-//   try {
-//     const response = await url.post("/register", {
-//       username,
-//       email,
-//       password,
-//     });
-//     return response.data;
-//   } catch (error) {
-//     console.error("Error signing up:", error);
-//     throw error;
-//   }
-// };
 const signup = (username, email, password) =>
   url.post("/register", { username, email, password });
 // Function to get a protected resource
