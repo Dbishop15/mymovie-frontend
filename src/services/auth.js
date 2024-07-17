@@ -23,27 +23,3 @@ export const parseJwt = (token) => {
     return null;
   }
 };
-
-// export const parseJwt = (token) => {
-//   try {
-//     const base64Url = token.split(".")[1];
-//     const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-//     const jsonPayload = decodeURIComponent(
-//       atob(base64)
-//         .split("")
-//         .map((c) => {
-//           return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
-//         })
-//         .join("")
-//     );
-
-//     const parsedPayload = JSON.parse(jsonPayload);
-//     if (parsedPayload.userId) {
-//       parsedPayload.userId = parseInt(parsedPayload.userId, 10);
-//     }
-//     return parsedPayload;
-//   } catch (error) {
-//     console.error("Failed to parse JWT token:", error);
-//     return null;
-//   }
-// };

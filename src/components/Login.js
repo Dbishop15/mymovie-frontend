@@ -29,7 +29,7 @@ export default function Login({ setUser }) {
 
   const setMessage = (value) => {
     setMessageState(value);
-    setTimeout(() => setMessageState(""), 5000);
+    // setTimeout(() => setMessageState(""), 5000);
   };
 
   const validateForm = () => {
@@ -67,14 +67,22 @@ export default function Login({ setUser }) {
         console.log("Login failed response:", response);
       }
     } catch (error) {
+      console.error("Error during login:", error);
+
       if (error.response) {
-        console.error("Error response:", error.response);
-        if (error.response.status === 403) {
-          setMessage("Access denied. Please check your credentials.");
+        console.error("Error response data:", error.response.data);
+        console.error("Error response status:", error.response.status);
+        console.error("Error response headers:", error.response.headers);
+
+        // Handle specific status codes or error messages from the server
+        if (error.response.status === 401 || error.response.status === 403) {
+          setMessage("Login failed! Incorrect username or password.");
         } else if (error.response.status === 400) {
           setMessage("Bad request. Please check the data you are sending.");
         } else {
-          setMessage(`An error occurred: ${error.response.statusText}`);
+          setMessage(
+            `An error occurred: ${error.response.statusText || "Unknown error"}`
+          );
         }
       } else if (error.request) {
         console.error("Error request:", error.request);

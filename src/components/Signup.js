@@ -16,8 +16,8 @@ export default function Signup({ setUser }) {
     const newErrors = {};
     if (username.trim() === "") {
       newErrors.username = "Username is required.";
-    } else if (username.length < 3) {
-      newErrors.username = "Username must be at least 3 characters long.";
+    } else if (username.length < 4) {
+      newErrors.username = "Username must be at least 4 characters long.";
     }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email.trim()) {
